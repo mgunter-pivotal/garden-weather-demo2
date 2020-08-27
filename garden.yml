@@ -1,0 +1,6 @@
+kind: Project
+name: weather-monitor-example
+environments:
+  - name: local
+providers:
+  - name: local-kubernetes

@@ -1,0 +1,23 @@
+kind: Module
+description: Spring weather data source
+type: container
+name: weather-data
+disabled: false
+hotReload:
+  sync:
+    - target: /target
+      source: target
+services:
+  - name: weather-data
+    ports:
+      - name: http
+        containerPort: 9091
+        servicePort: 9091
+    healthCheck:
+       httpGet:
+         path: /nt-ms1/get-data
+         port: http
+    ingresses:
+      - path: /
+        port: http
+        hostname: weather.local.app.garden
